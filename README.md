@@ -211,8 +211,8 @@ spec:
 
 
 ***Now let's use browser to see how out webpage look***
-***Aloha , here is the ouput***
-*Html ouput*
+-***Aloha , here is the ouput***
+-*Html ouput*
 ![Output](/Images/31990.jpg)
 *Php ouput*
 ![Output](/Images/31991..jpg)
