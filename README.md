@@ -221,6 +221,6 @@ spec:
 - This Job check whethet our pod is running or not , it not then it will trigger the JOB 1 again
 - It will also send an email if Job failed
 
-![Output](/Images/Job 4..jpg)
-![Output](/Images/Job 4...jpg) 
+![Output](/Images/Job4.jpg)
+![Output](/Images/Job4...jpg) 
 
