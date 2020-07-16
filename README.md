@@ -210,11 +210,17 @@ spec:
 ![Mail](/Images/InkedMail_LI.jpg)
 
 
-***Now let's use browser to see how out webpage look***
--***Aloha , here is the ouput***
--*Html ouput*
+***Now let's use browser to see how out webpage look ,Aloha! here is the ouput***
+-Html Output
 ![Output](/Images/31990.jpg)
-*Php ouput*
+-Php Output
 ![Output](/Images/31991..jpg)
 
+**Step 6**
+*Job 4*
+- This Job check whethet our pod is running or not , it not then it will trigger the JOB 1 again
+- It will also send an email if Job failed
+
+![Output](/Images/Job 4..jpg)
+![Output](/Images/Job 4...jpg) 
 
