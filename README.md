@@ -201,9 +201,9 @@ spec:
 - It will aslo  send an email always either bulid failed or success
 - It will trigger the next Job
 
-![Job3](/Images/Job 3.jpg)
+![Job3](/Images/Job3.jpg)
 
-![Job3..jpg](/Images/Job 3..pg)
+![Job3..jpg](/Images/Job3..jpg)
 
 ***Mail for build***
 
