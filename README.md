@@ -88,7 +88,7 @@ docker build -t Name:Tag /Dockerfile path/
 
 *Output of Job*
 
-![Job 2](/Images/Job2out)
+![Job 2](/Images/Job2out.jpg)
 
 ***html-pod.yml***
 ```
@@ -226,7 +226,7 @@ spec:
 
 
 **Feel free for any suggestion**
-__THANK YOU__
+# Thank You
 
 
 
