@@ -50,6 +50,6 @@ Kubernetes provides you with:
 
 *Initially , first we have to create the Docker Image  using Dockerfile , so that when we run container using this docker Image  it should automatically start jenkins. I have completed this task by using the Jenkins Server on my base Redhat but you can use this Dockerfile to create your Image *
 
-![Dockerfile](/Image/1.png)
+![Dockerfile](/Images/1.png)
 
 
