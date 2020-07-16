@@ -203,7 +203,7 @@ spec:
 
 ![Job3](/Images/Job 3.jpg)
 
-![Job3..jpg](/Images/Job 3..jpg)
+![Job3..jpg](/Images/Job 3..pg)
 
 ***Mail for build***
 
