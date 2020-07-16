@@ -1,4 +1,4 @@
-# Launching a website on top of Kubernetes
+# Launching a webpage on top of Kubernetes
 **Project Description**
 - Create container image that’s has Jenkins installed  using dockerfile  Or You can use the Jenkins Server on RHEL 8/7
 -  When we launch this image, it should automatically starts Jenkins service in the container.
@@ -207,5 +207,5 @@ spec:
 
 ***Mail for build***
 
-![Mail](/Images/Mail.jpg)
+![Mail](/Images/InkedMail_LI.jpg)
 
