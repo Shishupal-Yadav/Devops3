@@ -48,8 +48,164 @@ Kubernetes provides you with:
 
 **After Knowing these technologies Let's start our project**
 
+**Step 1**
 *Initially , first we have to create the Docker Image  using Dockerfile , so that when we run container using this docker Image  it should automatically start jenkins. I have completed this task by using the Jenkins Server on my base Redhat but you can use this Dockerfile to create your Image *
 
 ![Dockerfile](/Images/1.png)
 
+*After creating this file run the following command  :*
+**Command to be run in the directory where your Dockerfile present**
+```
+docker build -t Name:Tag .
+```
+**Command to be run in /root directory or other directory**
+```
+docker build -t Name:Tag /Dockerfile path/
+```
+
+**Step 2**
+*Then we have to create our code and push to our github account , I have uploaded my codes as index.html and index.php in this github repository*
+
+**Step 3**
+*JOB 1*
+- This Job will pull the code from github and copy to /devops3 directory in my base Redhat8
+- In this Job I have Poll SCM trigger , so that when any changes are made in Code then it will automatically downlaod the new code and copy it to directory
+- This Job will also trigger next Job
+
+![Job1](/Images/Job1.jpg/)
+
+![Job1.](/Images/Job1..jpg)
+
+**Step 4**
+*JOB 2*
+- Now this Job will launch the pods using the httpd and php(vimal3/apache-webserver-php) images , it will also create pvc , and also  service so that pods can be exposed to outside world
+- This Job would also delete all the resources if they are already running
+- And also trigger the next Job
+
+![Job2](/Images/Job2.jpg)
+
+![Job2.](/Images/Job2..jpg)
+
+*Output of Job*
+
+![Job 2](/Images/Job 2 Output.jpg)
+
+***html-pod.yml***
+```
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+    name: htmlpvc
+spec:
+   accessModes:
+     - ReadWriteOnce
+   resources:
+       requests:
+          storage: 10Gi
+ 
+---
+apiVersion: v1
+kind: Pod
+metadata:
+    name: html-pod
+    labels:
+      app: html
+
+spec:
+      containers:
+      - image: httpd
+        name: html-cont
+        
+        
+        volumeMounts:
+        - name: html-persistent-storage
+          mountPath: /usr/local/apache2/htdocs
+      volumes:
+      - name: html-persistent-storage
+        persistentVolumeClaim:
+          claimName: htmlpvc
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: html-service
+spec:
+  type: NodePort
+  selector:
+    app: html
+  ports:
+    - nodePort: 31990
+      port: 80
+      targetPort: 80
+```
+
+***php-pod.yml***
+
+```
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+    name: phppvc
+spec:
+   accessModes:
+     - ReadWriteOnce
+   resources:
+       requests:
+          storage: 10Gi
+ 
+---
+apiVersion: v1
+kind: Pod
+metadata:
+    name: php-pod
+    labels:
+      app: php
+
+spec:
+      containers:
+      - image: vimal13/apache-webserver-php
+        name: php-cont
+        
+        
+        volumeMounts:
+        - name: php-persistent-storage
+          mountPath: /var/www/html
+      volumes:
+      - name: php-persistent-storage
+        persistentVolumeClaim:
+          claimName: phppvc
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: php-service
+spec:
+  type: NodePort
+  selector:
+    app: php
+  ports:
+    - nodePort: 31991
+      port: 80
+      targetPort: 80
+
+```
+**Step 5**
+*Job 3*
+- This Job will  copy the code downloaded from github to containers 
+- This Job will also  check the status code of our running  application 
+- It will fail the build if status code is other than 200
+- It will aslo  send an email always either bulid failed or success
+- It will trigger the next Job
+
+![Job3](/Images/Job 3.jpg)
+
+![Job3..jpg](/Images/Job 3..jpg)
+
+***Mail for build***
+
+![Mail](/Images/Mail.jpg)
 
