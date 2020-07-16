@@ -207,7 +207,7 @@ spec:
 
 ***Mail for build***
 
-![Mail](/Images/InkedMail_LI.jpg)
+![Mail](/Images/Mail.jpg)
 
 
 ***Now let's use browser to see how out webpage look ,Aloha! here is the ouput***
@@ -223,4 +223,10 @@ spec:
 
 ![Output](/Images/Job4.jpg)
 ![Output](/Images/Job4...jpg) 
+
+
+**Feel free for any suggestion**
+***THANK YOU***
+
+
 
